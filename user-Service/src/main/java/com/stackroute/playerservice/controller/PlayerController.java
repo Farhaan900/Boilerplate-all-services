@@ -4,8 +4,6 @@ import com.stackroute.playerservice.domain.Player;
 import com.stackroute.playerservice.exceptions.PlayerAlreadyExistsException;
 import com.stackroute.playerservice.exceptions.PlayerNotFoundException;
 import com.stackroute.playerservice.service.PlayerService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -28,8 +26,6 @@ import java.util.List;
 public class PlayerController {
 
     private PlayerService playerService;
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
 
     @Value("${msg:Hello world - Config Server is not working..pelase check}")
     private String msg;
@@ -95,8 +91,6 @@ public class PlayerController {
     public ResponseEntity<List<Player>> getplayers() {
 
         List<Player> players = playerService.getPlayers();
-        logger.debug("this is a debug logger");
-        logger.info("this is in info logger");
         return new ResponseEntity<List<Player>>(players, HttpStatus.OK);
     }
 

@@ -33,10 +33,10 @@ services:
         condition: service_healthy
       eureka-server:
         condition: service_healthy
-      restaurant-service:
+      player-service:
         condition: service_healthy
-#      user-service:
-#        condition: service_healthy
+      user-service:
+        condition: service_healthy
     restart: always
     network_mode: "host"
     image: demo-zuul-service2
@@ -46,7 +46,7 @@ services:
     healthcheck:
       test: "exit 0"
 
-  restaurant-service:
+  player-service:
     build: playerService/
     image: demo-restaurant-service
     restart: always
@@ -62,18 +62,18 @@ services:
     healthcheck:
       test: "exit 0"
 
-#  user-service:
-#    build: user-service/
-#    image: demo-user-service
-#    restart: always
-#    network_mode: "host"
-#    hostname: localhost
-#    ports:
-#      - 8080:8080
-#    depends_on:
-#      config-service:
-#        condition: service_healthy
-#      eureka-server:
-#        condition: service_healthy
-#    healthcheck:
-#      test: "exit 0"
+  user-service:
+    build: user-Service/
+    image: demo-user-service
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 7789:7789
+    depends_on:
+      config-service:
+        condition: service_healthy
+      eureka-server:
+        condition: service_healthy
+    healthcheck:
+      test: "exit 0"

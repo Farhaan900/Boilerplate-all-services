@@ -27,5 +27,6 @@
         <module>eurekaServer</module>
         <module>playerService</module>
         <module>zuulGatewayMapper</module>
+        <module>user-Service</module>
     </modules>
 </project>
