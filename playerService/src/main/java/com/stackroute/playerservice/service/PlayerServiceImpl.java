@@ -5,6 +5,10 @@ import com.stackroute.playerservice.exceptions.PlayerAlreadyExistsException;
 import com.stackroute.playerservice.exceptions.PlayerNotFoundException;
 import com.stackroute.playerservice.repository.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.FindAndModifyOptions;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -46,7 +50,7 @@ public class PlayerServiceImpl implements PlayerService {
         }
 
         else {
-            savedPlayer = playerRepository.save(player);
+            savedPlayer = playerRepository.save(new Player(player.getName(),player.getScore()));
             if (savedPlayer == null)
                 throw new PlayerAlreadyExistsException("test");
         }
@@ -125,5 +129,7 @@ public class PlayerServiceImpl implements PlayerService {
 //        List<Player> user_id = playerRepository.findByName(name);
 //        return user_id;
 //    }
+
+
 
 }

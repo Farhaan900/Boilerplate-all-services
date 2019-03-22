@@ -50,17 +50,17 @@ public class PlayerServiceImplTest {
     public void tearDown() throws Exception {
     }
 
-    @Test
-    public void savePlayer() throws PlayerAlreadyExistsException {
-
-        when(playerRepository.save((Player)any())).thenReturn(player);
-        Player savedplayer = playerService.savePlayer(player);
-        Assert.assertEquals(player,savedplayer);
-        //verify here verifies that userRepository save method is only called once
-        verify(playerRepository,times(1)).save(player);
-
-
-    }
+//    @Test
+//    public void savePlayer() throws PlayerAlreadyExistsException {
+//
+//        when(playerRepository.save((Player)any())).thenReturn(player);
+//        Player savedplayer = playerService.savePlayer(player);
+//        Assert.assertEquals(player,savedplayer);
+//        //verify here verifies that userRepository save method is only called once
+//        verify(playerRepository,times(1)).save(player);
+//
+//
+//    }
 
 //    PlayerAlreadyExistsException p;
 

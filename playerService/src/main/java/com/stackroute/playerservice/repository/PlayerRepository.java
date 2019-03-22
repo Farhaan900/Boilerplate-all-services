@@ -18,7 +18,6 @@ public interface PlayerRepository extends MongoRepository<Player, String> {
 //            value = "SELECT * FROM PLAYER where name = ?1",
 //            nativeQuery = true)
 //    List<Player> findAllActiveUsers(String name);
-
 //    @Query(value = "SELECT p FROM Player p where p.name =?1")
 //    List<Player> findByName(String name);
 }

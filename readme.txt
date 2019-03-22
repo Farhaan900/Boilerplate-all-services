@@ -7,9 +7,12 @@ zuul routing routes on :
 ---- :7788 for player service
 ---- :7789 for user service
 
+Zuul gateway running on " https " !! run on a browser, doesn't run on postman !
+
 Eureka configured for userservice and Player service ONLY
 
 Config server properties present on github : https://github.com/Farhaan900/config-server-repo
+
 
 
 Ports used for all the services :-
@@ -19,4 +22,4 @@ Ports used for all the services :-
 >> configServer  :8891
 >> zuulGateway   :8000
 >> eureka Server :9090
-
+>> mongo server  :27017
